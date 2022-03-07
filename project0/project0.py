@@ -80,7 +80,6 @@ def extractincidents(data):
             try:
                 if len(b) == 6:
                     excep.append(b[4])
-                    #or slice the third row
             except:
                 print('')
             try:
