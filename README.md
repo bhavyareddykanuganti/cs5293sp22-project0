@@ -32,25 +32,25 @@ All the functions defined in the project0.py file are called in main.py file for
 The required functions are defined in project0.py file 
 ### Function Description
 ### 1. fetchincidents(url)
-urllib.request library is used in this function.An aurgument url is passed, for fetching the data and then returning it.
+urllib.request library is used in this function. An aurgument url is passed, for fetching the data and then returning it.
 ### 2. extractincidents(data)
-In this function the fetched data is written in a temporary file and that is read using PyPdf2.
-Each row from each page is extracted from the pdf and is stored in a list. There are few exceptions that has to be taken care of while extracting.
+In this function the fetched data is written in a temporary file, then the cursor of the file is set back to the begining. PyPdf2 is used to read the file. 
+We are using a regular expression for date and time pattern then if the pattern is found then it is appended to a list a. Each row from each page is extracted from the pdf and is stored in a list. There are few exceptions that has to be taken care of while extracting.
 The headings and the date that data was released should be replaced.
-I have attached '$' before the date and the using a for loop
+Then I have attached '$' before the date and time. Using a for loop
 '\n' was replaced with ',' and '$' with '\n' so that each column is displayed as element of list.
-It is then split into a seperate lists and each list is appended to a variable if length is 5. I have used try exept block if the length of string is either greater than or less than 5 
-If length of the list is less than 5 and the nature is unknown we count the number of unknown values. If length is greater than 5 
-then it is considered that in place of nature of incidents the next line of address is displayed so the next element is being appended to the nature of incidents row in the end. 
+It is then split into a seperate lists and each list is appended to a list variable if length is 5. I have used try exept block if the length of string is either greater than or less than 5 
+If length of the list is less than 5 and the nature is unknown, we count the Null values. If length is greater than 5 
+then it is considered that in place of nature of incidents the next line of address is displayed so the next element is being appended to the nature of incidents row in the end. I have assigned null values, except for nature of incident column if length was greater than 5. 
 In this function we return all the rows, length of the row and count of unknown nature of incidents.
 
 
 ### 3. createdb()
-Database is created using sqlite. A table named incidents with incident_time, incident_number, incident_location, nature, and incident_ori columns
-is being created in norman.db. This function returns db.
+Database is created using sqlite, for this first a connection object needs to be created to represent the database and then a cursor object needs to be created. A table named incidents with incident_time, incident_number, incident_location, nature, and incident_ori columns
+is being created using execute() method in norman.db. After creating the table the connection has to be closed.
 
 ### 4. populatedb(db, incidents0, incidents1, incidents2, incidents3, incidents4, x)
-The db, data from each row and length of the row are passed as arguments for this function. The data that has been fetched and extracted from the pdf is inserted into the database.
+As done in createdb() function, even in populatedb()we need connection and cursor object. The arguments passed for this function are db, data of five row and length of the row. The data that has been fetched and extracted from the pdf is inserted into the database using the execute() method, and the commit() method is uused to save the changes. The saved records are retured through this function.
 
 ### 5. status(db)
 This function takes db as the argument, the nature of incident and the number of times that has occured will be sorted and printed and also the number of times nature of incidents is unknown is also displayed in the end.
@@ -75,7 +75,7 @@ This test function is used to test populatedb() function in project0.py and is p
 This is a test function for status() function in project0.py and is passed if the records returned is not none.
 ### Assumptions and bugs
 
-If length of the list of columns is greater than five then the fifth element in the list is taken as nature since   
+If length of the list of columns is greater than five then the fifth element in the list is taken as nature since, few ofthe files have 2 address lines and the second line is considered as fourth element. The null value of nature of incidents is being displayed in the end.   
 
 # Execution
 The following command has to be used to run the main.py file:
