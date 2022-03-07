@@ -50,10 +50,10 @@ Database is created using sqlite, for this first a connection object needs to be
 is being created using execute() method in norman.db. After creating the table the connection has to be closed.
 
 ### 4. populatedb(db, incidents0, incidents1, incidents2, incidents3, incidents4, x)
-As done in createdb() function, even in populatedb()we need connection and cursor object. The arguments passed for this function are db, data of five row and length of the row. The data that has been fetched and extracted from the pdf is inserted into the database using the execute() method, and the commit() method is uused to save the changes. The saved records are retured through this function.
+As done in createdb() function, even in populatedb() connection and cursor object are needed. The arguments passed for this function are db, data of five row and length of the row. The data that has been fetched and extracted from the pdf is inserted into the database using the execute() method, and the commit() method is uused to save the changes. The saved records are retured through this function.
 
 ### 5. status(db)
-This function takes db as the argument, the nature of incident and the number of times that has occured will be sorted and printed and also the number of times nature of incidents is unknown is also displayed in the end.
+This function takes db and count as the argument, connection and cursor object are created and in the execute method the data is sorted based on the number of times an incident occurs in descending order and then it is sorted alphabetically. The nature of incident and the number of times that has occured will be seperated by pipe character and is printed. The number of times nature of incidents is unknown is also displayed in the end.
 
 ## 3. test_project0.py
 This file tests all the functions in project0.py file, when executed it returns
@@ -73,6 +73,7 @@ This test function is used to test populatedb() function in project0.py and is p
 
 ### 5. test_status()
 This is a test function for status() function in project0.py and is passed if the records returned is not none.
+
 ### Assumptions and bugs
 
 If length of the list of columns is greater than five then the fifth element in the list is taken as nature since, few ofthe files have 2 address lines and the second line is considered as fourth element. The null value of nature of incidents is being displayed in the end.   
