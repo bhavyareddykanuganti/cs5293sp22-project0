@@ -36,11 +36,11 @@ urllib.request library is used in this function.An aurgument url is passed, for 
 ### 2. extractincidents(data)
 In this function the fetched data is written in a temporary file and that is read using PyPdf2.
 Each row from each page is extracted from the pdf and is stored in a list. There are few exceptions that has to be taken care of while extracting.
-The headings and the date data was released should be replaced.
+The headings and the date that data was released should be replaced.
 I have attached '$' before the date and the using a for loop
 '\n' was replaced with ',' and '$' with '\n' so that each column is displayed as element of list.
-It is then split into a seperate lists and each list is appended to a variable if length is 5.
-If length of the list is less than 5 and the nature is unknown we count the number of unknown values. **Assumption** if length is greater than 5 
+It is then split into a seperate lists and each list is appended to a variable if length is 5. I have used try exept block if the length of string is either greater than or less than 5 
+If length of the list is less than 5 and the nature is unknown we count the number of unknown values. If length is greater than 5 
 then it is considered that in place of nature of incidents the next line of address is displayed so the next element is being appended to the nature of incidents row in the end. 
 In this function we return all the rows, length of the row and count of unknown nature of incidents.
 
@@ -67,17 +67,27 @@ This test function is used to test extractincidents() in project0.py, test is pa
 
 ### 3. test_createdb()
 This test function is used to check weather the normapd.db database has been created or not in createdb() function in project0.py.
+
 ### 4. test_popuatedb()
 This test function is used to test populatedb() function in project0.py and is passed if each row in the database has been inserted with the extracted data.
+
 ### 5. test_status()
 This is a test function for status() function in project0.py and is passed if the records returned is not none.
+### Assumptions and bugs
+
+If length of the list of columns is greater than five then the fifth element in the list is taken as nature since   
 
 # Execution
-The following command has to be used to run the file
-python main.py --incidents "url"
+The following command has to be used to run the main.py file:
 
-python main.py --incidents "https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-21_dai
-ly_incident_summary.pdf"
+pipenv run python project0/main.py --incidents <url>
+
+pipenv run python project0/main.py --incidents "https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-21_daily_incident_summary.pdf"
+
+The following command has to be used to run the test_project0.py  file  
+  
+pipenv run pytest  
+  
 
 # External links used
 
