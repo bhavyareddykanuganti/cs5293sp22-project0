@@ -125,6 +125,7 @@ def populatedb(db,c0,c1,c2,c3,c4,x):
     con.close()
     return rrecords
 
+#required output
 def status(db,count):
     con = sqlite3.connect('normanpd.db')
     cur = con.cursor()
