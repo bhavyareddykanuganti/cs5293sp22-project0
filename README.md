@@ -1,27 +1,13 @@
-#Norman Police Department Incident Summary
-##Author
-###Bhavya Reddy Kanuganti
+# Norman Police Department Incident Summary
+
+
+## Author
+### Bhavya Reddy Kanuganti
 Email: bhavya.reddy.kanuganti-1@ou.edu
-##Project Description
+## Project Description
 The aim of the project is to download incident summary pdf from [The Norman police department website](https://www.normanok.gov/public-safety/police-department/crime-prevention-data/department-activity-reports) 
 and extract required fields. Then using sqlite database has to be created and the extracted data should be inserted into the database. The nature of the incident and the number of times it occurs has to be displayed.
-#Structure
-cs5293sp22-project0/
-├── COLLABORATORS
-├── LICENSE
-├── requirements.txt
-├── README.md
-├── project0
-│   ├── __init__.py
-│   ├── main.py
-│   └── project0.py
-├── docs/
-├── setup.cfg
-├── setup.py
-└── tests
-    └── test.py
-
-#Packages Installed
+# Packages Installed
 The following packages were used in the project:
 
 urllib 
@@ -38,16 +24,16 @@ ssl
 
 re
 
-#Files and Function Description
-main.py and project0.py are the files used in this code
-##1. main.py
+# Files and Function Description
+main.py, project0.py and testare the files used in this code
+## 1. main.py
 All the functions defined in the project0.py file are called in main.py file for execution.
-##2. project0.py
+## 2. project0.py
 The required functions are defined in project0.py file 
-###Function Description
-###1. fetchincidents(url)
+### Function Description
+### 1. fetchincidents(url)
 urllib.request library is used in this function.An aurgument url is passed, for fetching the data and then returning it.
-###2. extractincidents(data)
+### 2. extractincidents(data)
 In this function the fetched data is written in a temporary file and that is read using PyPdf2.
 Each row from each page is extracted from the pdf and is stored in a list. There are few exceptions that has to be taken care of while extracting.
 The headings and the date data was released should be replaced.
@@ -59,41 +45,41 @@ then it is considered that in place of nature of incidents the next line of addr
 In this function we return all the rows, length of the row and count of unknown nature of incidents.
 
 
-###3. createdb()
+### 3. createdb()
 Database is created using sqlite. A table named incidents with incident_time, incident_number, incident_location, nature, and incident_ori columns
 is being created in norman.db. This function returns db.
 
-###4. populatedb(db, incidents0, incidents1, incidents2, incidents3, incidents4, x)
+### 4. populatedb(db, incidents0, incidents1, incidents2, incidents3, incidents4, x)
 The db, data from each row and length of the row are passed as arguments for this function. The data that has been fetched and extracted from the pdf is inserted into the database.
 
-###5. status(db)
-This function takes db as the argument, the nature of incident and the number of times that has occured will be printed and also the number of nature of unknown incidents is also displayed.
+### 5. status(db)
+This function takes db as the argument, the nature of incident and the number of times that has occured will be sorted and printed and also the number of times nature of incidents is unknown is also displayed in the end.
 
-##3. test.py
+## 3. test_project0.py
 This file tests all the functions in project0.py file, when executed it returns
 ifv test case has passed or failed.
 
-###1. test_fetchincidents()
+### 1. test_fetchincidents()
 This test function is used to test fetchincidents() function in project0.py, test is passed if the data that has been fetched from the pdf is not none.
 
-###2. test_extractincidents()
+### 2. test_extractincidents()
 This test function is used to test extractincidents() in project0.py, test is passed if all the rows in the pdf are not none.
 
-###3. test_createdb()
+### 3. test_createdb()
 This test function is used to check weather the normapd.db database has been created or not in createdb() function in project0.py.
-###4. test_popuatedb()
+### 4. test_popuatedb()
 This test function is used to test populatedb() function in project0.py and is passed if each row in the database has been inserted with the extracted data.
-###5. test_status()
+### 5. test_status()
 This is a test function for status() function in project0.py and is passed if the records returned is not none.
 
-#Execution
+# Execution
 The following command has to be used to run the file
 python main.py --incidents "url"
 
 python main.py --incidents "https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-21_dai
 ly_incident_summary.pdf"
 
-#External links used
+# External links used
 
 https://www.geeksforgeeks.org/
 
