@@ -110,6 +110,7 @@ def createdb():
     con.close()
     return 'normanpd.db'
 
+#insert into database
 def populatedb(db,c0,c1,c2,c3,c4,x):
     con = sqlite3.connect('normanpd.db')
     # create cursor object
