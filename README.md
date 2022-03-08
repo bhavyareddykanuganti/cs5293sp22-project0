@@ -61,7 +61,7 @@ As done in createdb() function, even in populatedb() connection and cursor objec
 ### 5. status(db)
 This function takes db and count as the argument, connection and cursor object are created and in the execute method the data is sorted based on the number of times an incident occurs in descending order and then it is sorted alphabetically. The nature of incident and the number of times that has occured will be seperated by pipe character and is printed. The number of times nature of incidents is unknown is also displayed in the end.
 
-### Expected Output
+### Output
 
 ```
 Traffic Stop | 40
