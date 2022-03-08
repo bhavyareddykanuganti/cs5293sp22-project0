@@ -25,7 +25,7 @@ The following packages were used in the project:
 - re
 
 # Files and Function Description
-main.py, project0.py and testare the files used in this code
+main.py, project0.py and test_project0.py are the files used in this code
 ## 1. main.py
 All the functions defined in the project0.py file are called in main.py file for execution.
 ## 2. project0.py
@@ -53,6 +53,22 @@ As done in createdb() function, even in populatedb() connection and cursor objec
 
 ### 5. status(db)
 This function takes db and count as the argument, connection and cursor object are created and in the execute method the data is sorted based on the number of times an incident occurs in descending order and then it is sorted alphabetically. The nature of incident and the number of times that has occured will be seperated by pipe character and is printed. The number of times nature of incidents is unknown is also displayed in the end.
+
+### Expected Output
+`Traffic Stop | 40`
+
+`Transfer/Interfacility | 26`
+
+`Disturbance/Domestic | 19`
+
+`Welfare Check | 15`
+
+`Alarm | 13`
+
+`Sick Person | 9`
+
+`Follow Up | 8`
+
 
 ## 3. test_project0.py
 This file tests all the functions in project0.py file, when executed it returns
