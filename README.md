@@ -10,19 +10,19 @@ and extract required fields. Then using sqlite database has to be created and th
 # Packages Installed
 The following packages were used in the project:
 
--urllib 
+- urllib 
 
--urllib.request 
+- urllib.request 
 
--tempfile
+- tempfile
 
--PyPDF2
+- PyPDF2
 
--sqlite3
+- sqlite3
 
--ssl
+- ssl
 
--re
+- re
 
 # Files and Function Description
 main.py, project0.py and testare the files used in this code
