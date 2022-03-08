@@ -2,11 +2,14 @@
 
 
 ## Author
+
 ### Bhavya Reddy Kanuganti
 Email: bhavya.reddy.kanuganti-1@ou.edu
+
 ## Project Description
 The aim of the project is to download incident summary pdf from [The Norman police department website](https://www.normanok.gov/public-safety/police-department/crime-prevention-data/department-activity-reports) 
-and extract required fields. Then using sqlite database has to be created and the extracted data should be inserted into the database. The nature of the incident and the number of times it occurs has to be displayed.
+and extract required fields. Then using sqlite database has to be created and the extracted data should be inserted into the database. The nature of the incident and the number of times it occurs has to be displayed, the list should be sorted first by the total number of incidents and then alphabetically by nature.
+
 # Packages Installed
 The following packages were used in the project:
 
@@ -26,13 +29,17 @@ The following packages were used in the project:
 
 # Files and Function Description
 main.py, project0.py and test_project0.py are the files used in this code
+
 ## 1. main.py
 All the functions defined in the project0.py file are called in main.py file for execution.
+
 ## 2. project0.py
 The required functions are defined in project0.py file 
+
 ### Function Description
 ### 1. fetchincidents(url)
 urllib.request library is used in this function. An argument url is passed, for fetching the data and then returning it.
+
 ### 2. extractincidents(data)
 In this function the fetched data is written in a temporary file, then the cursor of the file is set back to the beginning. PyPdf2 is used to read the file. 
 We are using a regular expression for date and time pattern then if the pattern is found then it is appended to a list a. Each row from each page is extracted from the pdf and is stored in a list. There are few exceptions that has to be taken care of while extracting.
@@ -55,19 +62,17 @@ As done in createdb() function, even in populatedb() connection and cursor objec
 This function takes db and count as the argument, connection and cursor object are created and in the execute method the data is sorted based on the number of times an incident occurs in descending order and then it is sorted alphabetically. The nature of incident and the number of times that has occured will be seperated by pipe character and is printed. The number of times nature of incidents is unknown is also displayed in the end.
 
 ### Expected Output
-`Traffic Stop | 40`
 
-`Transfer/Interfacility | 26`
-
-`Disturbance/Domestic | 19`
-
-`Welfare Check | 15`
-
-`Alarm | 13`
-
-`Sick Person | 9`
-
-`Follow Up | 8`
+```
+Traffic Stop | 40
+Transfer/Interfacility | 26
+Disturbance/Domestic | 19
+Welfare Check | 15
+Alarm | 13
+Sick Person | 9
+Follow Up | 8
+...
+```
 
 
 ## 3. test_project0.py
