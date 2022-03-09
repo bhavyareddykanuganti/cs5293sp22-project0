@@ -38,7 +38,7 @@ The required functions are defined in project0.py file
 
 ### Function Description
 ### 1. fetchincidents(url)
-urllib.request library is used in this function. An argument url is passed, for fetching the data and then returning it.
+urllib.request library is used in this function. An argument url is passed, for fetching the data and then returning it. An SSl verification error occured in this fuction which was overcome using the following statement 'ssl._create_default_https_context = ssl._create_unverified_context'.
 
 ### 2. extractincidents(data)
 In this function the fetched data is written in a temporary file, then the cursor of the file is set back to the beginning. PyPdf2 is used to read the file. 
@@ -94,9 +94,11 @@ This test function is used to test populatedb() function in project0.py and is p
 ### 5. test_status()
 This is a test function for status() function in project0.py and is passed if the records returned is not none.
 
-### Assumptions
+### Assumptions and Bugs
 
-If length of the list of columns is greater than five then the fifth element in the list is taken as nature since, few ofthe files have 2 address lines and the second line is considered as fourth element. The null value of nature of incidents is being displayed in the end.   
+If length of the list of columns is greater than five then the fifth element in the list is taken as nature since, few ofthe files have 2 address lines and the second line is considered as fourth element. The null value of nature of incidents is being displayed in the end. 
+In the fetchincidents dunction certificate verification error occured (ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:997))  to solve this error 'ssl._create_default_https_context = ssl._create_unverified_context' has been used. 
+  
 
 # Execution
 The following command has to be used to run the main.py file:
