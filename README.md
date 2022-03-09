@@ -120,8 +120,7 @@ https://www.markdownguide.org/cheat-sheet/
 
 https://www.programcreek.com/python/example/69411/ssl._create_default_https_context
 
-https://www.kite.com/python/
+https://docs.python.org/3/howto/regex.html
 
 https://note.nkmk.me/en/python-string-line-break/
 
-https://appdividend.com/2022/01/26/how-to-create-sqlite-database-in-python/
